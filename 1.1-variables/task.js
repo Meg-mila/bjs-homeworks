@@ -12,15 +12,17 @@ function averageMark(a, g, p) {
 	let count = 3;
 	let total = sum / count;
     
-	return total// ваш ответ;
+	return total // ваш ответ;
 }
 
 
 function sayHello(userName) {
 	
-    // реализуйте здесь задание №2
-    
-	return // ваш ответ;
+	// реализуйте здесь задание №2
+	
+	let myName = userName;
+	let message = 'Привет, мир! Меня зовут' + ' ' + userName;
+	return message // ваш ответ;
 }
 
 function calculateFormula() {
