@@ -7,10 +7,14 @@
 
 function averageMark(a, g, p) {
 	
-    // реализуйте здесь задание №1
+	// реализуйте здесь задание №1
+	let sum = a + g + p;
+	let count = 3;
+	let total = sum / count;
     
-	return // ваш ответ;
+	return total// ваш ответ;
 }
+
 
 function sayHello(userName) {
 	
