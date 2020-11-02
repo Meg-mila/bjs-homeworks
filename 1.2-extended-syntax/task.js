@@ -15,8 +15,21 @@ function getResult(a,b,c){
 }
 
 function getAverageMark(marks){
-    // код для задачи №2 писать здесь
-    // return averageMark;
+    let sumMarks = 0;
+    
+    if (marks.length === 0) {
+        return 0;
+    }
+    
+    if (marks.length > 5) {
+        console.log('Количество оценок больше 5');
+        marks.splice(5);
+    }
+    for (let i = 0; i < marks.length; i++){
+        sumMarks += marks[i];
+    }
+    let averageMark = sumMarks / marks.length;
+    return Math.round(averageMark);
 }
 
 function askDrink(name,dateOfBirthday){
