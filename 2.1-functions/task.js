@@ -36,6 +36,7 @@ function showSolutionsMessage(a, b, c) {
         return console.log(`Уравнение имеет два корня. X₁ = ${result.roots[0]}, X₂ = ${result.roots[1]}`);
     }
 }
+
 showSolutionsMessage(1, 2, 3);
 showSolutionsMessage(7, 20, -3);
 showSolutionsMessage(2, 4, 2);
@@ -73,14 +74,46 @@ function getAverageScore(data) {
 
 console.log(getAverageScore({
     algebra: [2, 4, 5, 2, 3, 4],
-        geometry: [2, 4, 5],
-        russian: [3, 3, 4, 5],
-        physics: [5, 5],
-        music: [2, 2, 6],
-        english: [4, 4, 3],
-        poetry: [5, 3, 4],
-        chemistry: [2],
-        french: [4, 4],
+    geometry: [2, 4, 5],
+    russian: [3, 3, 4, 5],
+    physics: [5, 5],
+    music: [2, 2, 6],
+    english: [4, 4, 3],
+    poetry: [5, 3, 4],
+    chemistry: [2],
+    french: [4, 4],
 }));
 
 //задача 3
+function getDecodedValue(secret) {
+    if (secret === 0) {
+        return "Родриго"
+    } else if (secret === 1) {
+        return "Эмильо"
+    }
+}
+function getPersonData(secretData) {
+    let firstName = getDecodedValue(secretData.aaa);
+    let lastName = getDecodedValue(secretData.bbb);
+    let fullName = {
+        firstName,
+        lastName
+    };
+    return fullName
+}
+console.log(getPersonData({
+    aaa: 0,
+    bbb: 0
+}));
+console.log(getPersonData({
+    aaa: 1,
+    bbb: 0
+}));
+console.log(getPersonData({
+    aaa: 0,
+    bbb: 1
+}));
+console.log(getPersonData({
+    aaa: 1,
+    bbb: 1
+}));
