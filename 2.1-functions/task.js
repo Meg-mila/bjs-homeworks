@@ -17,7 +17,6 @@ function getSolutions(a, b, c) {
     } else if (d > 0) {
         const x1 = ((-b + Math.sqrt(d)) / (2 * a));
         const x2 = ((-b - Math.sqrt(d)) / (2 * a));
-        console.log(x1, x2);
         return {
             D: d,
             roots: [x1, x2]
@@ -30,13 +29,16 @@ function showSolutionsMessage(a, b, c) {
     console.log(`Вычисляем корни квадратного уравнения ${a}x^2 + ${b}x + ${c}`);
     console.log(`Значение дискриминанта: ${result.D}`);
     if (result.D < 0) {
-        return "Уравнение не имеет вещественных корней";
+        return console.log("Уравнение не имеет вещественных корней");
     } else if (result.D === 0) {
-        return `Уравнение имеет один корень X₁ = ${result.roots}`;
+        return console.log(`Уравнение имеет один корень X₁ = ${result.roots}`);
     } else {
-        return `Уравнение имеет два корня. X₁ = ${result.roots[0]}, X₂ = ${result.roots[1]}`;
+        return console.log(`Уравнение имеет два корня. X₁ = ${result.roots[0]}, X₂ = ${result.roots[1]}`);
     }
 }
+showSolutionsMessage(1, 2, 3);
+showSolutionsMessage(7, 20, -3);
+showSolutionsMessage(2, 4, 2);
 
 //задача 2
 function getAverageMark(marks) {
@@ -80,3 +82,5 @@ console.log(getAverageScore({
         chemistry: [2],
         french: [4, 4],
 }));
+
+//задача 3
