@@ -20,7 +20,24 @@ function getAverageMark(marks) {
     return  roundAverage;
 }
 
-function checkBirthday(birthday) {
+function checkBirthday(userBirthday) {
     // код для задачи №3 писать здесь
     // return verdict
+    let today = new Date();
+    console.log(today);
+    let now = today.getTime();
+    console.log(now);
+    let userDate = new Date(userBirthday);
+    console.log(userDate);
+    let birthday = userDate.getTime();
+    console.log(birthday);
+    let diff = now - birthday;
+    console.log(diff);
+    let age = diff / (24 * 3600 * 1000 * 365.2425);
+    console.log(age);
+    if (age > 18) {
+        return true
+    } else if (age < 18) {
+        return false
+    }
 }
