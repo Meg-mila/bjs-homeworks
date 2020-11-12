@@ -1,9 +1,10 @@
 "use strict"
-//String.prototype.isPalindrome - для задачи №1
-function isPalindrome() {
 
+function isPalindrome(str) {
+    str  = this.toLowerCase().replace(/\s/g,'');
+    return str === str.split('').reverse().join('');
 }
-
+String.prototype.isPalindrome = isPalindrome;
 
 
 function getAverageMark(marks) {
