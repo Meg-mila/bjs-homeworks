@@ -130,3 +130,87 @@ console.log("Количество книг до выдачи: " + library.books.
 library.giveBookByName("Машина времени");
 console.log("Количество книг после выдачи: " + library.books.length);
 
+
+//задача 3
+class StudentLog {
+    constructor(name) {
+        this.name = name;
+        this.marks = {};
+    }
+
+    getName(name) {
+        return this.name;
+    }
+
+    addGrade(grade, subject) {
+        if (this.marks[subject] === undefined) {
+            this.marks[subject] = [];
+        }
+        if (grade > 0 && grade < 6) {
+            this.marks[subject].push(grade);
+        } else {
+            console.log(`Вы пытались поставить оценку ${grade} по предмету ${subject}. Допускаются только числа от 1 до 5.`);
+        }
+        return this.marks[subject].length;
+    }
+
+    getAverageBySubject(subject) {
+        if (this.marks[subject] === undefined) {
+            return 0;
+        }
+        let sumMarks = 0;
+        let average = 0;
+        for (let i = 0; i < this.marks[subject].length; i++) {
+            sumMarks += this.marks[subject][i];
+            average = sumMarks / this.marks[subject].length;
+        }
+        return average;
+    }
+
+    getTotalAverage() {
+        let sumSubject = 0;
+        let subjectLength = 0;
+        let average = 0;
+        for (let subject in this.marks) {
+            sumSubject += this.getAverageBySubject(subject);
+            subjectLength++;
+            average = sumSubject / subjectLength;
+        }
+        if (this.marks === 0) {
+            return 0;
+        }
+        return average;
+    }
+}
+
+console.log('//');
+const log = new StudentLog('Олег Никифоров');
+console.log(log.getName());
+console.log(log.addGrade(3, 'algebra'));
+console.log(log.addGrade('отлично!', 'math'));
+console.log(log.addGrade(4, 'algebra'));
+console.log(log.addGrade(5, 'geometry'));
+console.log(log.addGrade(25, 'geometry'));
+
+console.log('//');
+const log1 = new StudentLog('Олег Никифоров');
+
+log1.addGrade(2, 'algebra');
+log1.addGrade(4, 'algebra');
+log1.addGrade(5, 'geometry');
+log1.addGrade(4, 'geometry');
+
+console.log(log1.getAverageBySubject('geometry'));
+console.log(log1.getAverageBySubject('algebra'));
+console.log(log1.getAverageBySubject('math'));
+
+
+console.log('//');
+const log2 = new StudentLog('Олег Никифоров');
+
+log2.addGrade(2, 'algebra');
+log2.addGrade(4, 'algebra');
+log2.addGrade(5, 'geometry');
+log2.addGrade(4, 'geometry');
+
+console.log(log2.getTotalAverage())
