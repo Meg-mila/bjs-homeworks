@@ -36,14 +36,20 @@ class AlarmClock {
     }
 
     start() {
-        const checkTime = this.getCurrentFormattedTime();
-
+        const checkTime = this.getCurrentFormattedTime;
         function checkClock(call) {
-            const newTime = checkTime;
+            const newTime = checkTime();
             if (newTime === call.time) {
                 call.callback();
             }
         }
+
+        // const checkClock = (call) => {
+        //     const newTime = this.getCurrentFormattedTime();
+        //     if (newTime === call.time) {
+        //         call.callback();
+        //     }
+        // } //А так тоже будет верно, без создания доп.переменной?
 
         if (this.timerId === null) {
             this.timerId = setInterval(() => {
@@ -76,7 +82,7 @@ function testCase() {
     newClock.addClock("08:01", () => {
         console.log("Хватит спать! Вставай!"); newClock.removeClock(2)
     }, 2);
-    newClock.addClock("08:02", () => console.log("Иди умываться"));
+    //newClock.addClock("08:02", () => console.log("Иди умываться"));
     newClock.addClock("08:03", () => {
         console.log("Вставай! Проспишь!"); newClock.clearAlarms(); newClock.printAlarms()
     }, 3);
